@@ -27,21 +27,47 @@ html {
 }
 body {
 	background-color: $color-dark-cyan;
+	overflow: hidden;
+	font-family: inherit;
 }
 .container {
-	width: 100vw;
-	height: 80vh;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	&__image {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		&--top {
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translate(-50%, -50%);
+		}
+		&--bottom {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transform: translate(50%, 50%);
+		}
+	}
 }
 .card {
 	//background: url(../assets/images/bg-pattern-card.svg);
 	//width: 80%;
 	//margin: 0 auto;
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
-	width: 25%;
+	//width: 20%;
+	align-items: center;
+	justify-content: center;
 	overflow: hidden;
 	box-shadow: 1rem 5rem 5rem rgba($color: #000000, $alpha: 0.5);
 }
@@ -52,7 +78,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-
 	background-color: $color-white;
 	overflow: hidden;
 	&__background-image {
@@ -89,13 +114,16 @@ body {
 		&__location {
 			font-size: 1.2rem;
 			color: $color-dark-grayish-blue;
-			
 		}
 	}
 	&__stats-box {
+		padding: 2.5rem 4rem;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		
+		//transform: translateY(-30%);
 		&__item {
 			display: flex;
 			flex-direction: column;
@@ -104,6 +132,7 @@ body {
 			&--number {
 				font-weight: $font-weight-700;
 				color: $color-dark-desaturated-blue;
+				font-size: $font-size-main;
 			}
 			&--text {
 				font-weight: $font-weight-400;
@@ -112,16 +141,20 @@ body {
 		}
 	}
 }
-.seperator{
+.seperator {
 	width: 100%;
 	height: 1px;
 	background-color: $color-dark-gray;
 	//position: relative;
 	//top: -3rem;
-	transform: translateY(-50%);
+	transform: translateY(-1000%);
 }
 
 .footer {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	.attribution {
 		font-size: 1.1rem;
 		text-align: center;
